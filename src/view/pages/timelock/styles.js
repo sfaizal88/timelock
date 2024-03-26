@@ -1,11 +1,20 @@
 import { makeStyles } from '@mui/styles';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
+    container: {
+        display: 'flex',
+        flex: 1,
+        gap: '16px',
+        flexDirection: 'column',
+    },
     formBox: {
         border: '1px solid #ccc',
         borderRadius: '8px',
         padding: '16px',
         margin: '16px'
+    },
+    formField: {
+        margin: '0 0'
     },
     title: {
         fontSize: '17px',
@@ -22,7 +31,16 @@ const useStyles = makeStyles(() => ({
         display: 'inline-block',
         width: '140px',
         textTransform: 'none !important',
-        fontSize: '14px !important'
+        fontSize: '14px !important',
+        [theme.breakpoints.down('sm')]: {
+            width: '100%',
+        }
+    },
+    output: {
+        overflowWrap:' break-word',
+    },
+    copyIcon: {
+        marginLeft: '8px'
     }
 }));
   

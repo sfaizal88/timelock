@@ -6,9 +6,9 @@
  * 
  */
 // GENERIC IMPORT
-import ethers from 'ethers';
+import { ethers } from "ethers";
 
-export default function useTimelockHook() {
+export default function useTimelockHook(param) {
     
     // GENERAT SALT
     const generateSalt = () => {
@@ -19,7 +19,7 @@ export default function useTimelockHook() {
             ["address", "address"],
             [safeWalletAddress, timeLockAddress]
         );
-        return salt;
+        param.setSaltResult(salt);
     }
 
     const prepareData = (recipient, val) => {
@@ -37,7 +37,7 @@ export default function useTimelockHook() {
         const amount = ethers.utils.parseUnits(val, decimals); 
         // Encoding the transfer function data
         const data = tokenContract.interface.encodeFunctionData('transfer', [recipient, amount]);
-        return data;
+        param.setPrepareDataResult(data);
     }
 
     return {

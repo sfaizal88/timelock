@@ -6,14 +6,18 @@
  * 
  */
 // GENERIC IMPORT
-import {Box} from '@mui/material';
+// import {Box} from '@mui/material';
+import { ThemeProvider } from '@mui/material/styles';
 import Timelock from './view/pages/timelock';
+import Header from './view/pages/common/header';
+import theme from './theme'; 
 
 function App() {
   return (
-    <Box>
+    <ThemeProvider theme={theme}>
+      <Header/>
       <Timelock/>
-    </Box>
+    </ThemeProvider>
   );
 }
 
