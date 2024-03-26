@@ -40,7 +40,8 @@ const useStyles = makeStyles((theme) => ({
         overflowWrap:' break-word',
     },
     copyIcon: {
-        marginLeft: '8px'
+        marginLeft: '8px',
+        cursor: 'pointer'
     }
 }));
   
