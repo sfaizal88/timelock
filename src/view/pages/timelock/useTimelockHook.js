@@ -11,7 +11,7 @@ import { ethers } from "ethers";
 export default function useTimelockHook(param) {
     
     // GENERAT SALT
-    const generateSalt = () => {
+    const generateSalt = (randomNo) => {
         const safeWalletAddress = "0x213f1763Af3544af059a5A9f947A3ee3A9BA1129";
         const timeLockAddress = "0xCf1d93875Dd3d44BDa51c898B99281D459256072";
         // Use solidityKeccak256 to hash the combination of addresses

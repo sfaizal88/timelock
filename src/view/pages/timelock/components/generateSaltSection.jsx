@@ -34,7 +34,7 @@ const GenerateSaltSection = () => {
             {saltResult && <Alert className={classes.output} icon={<CheckIcon fontSize="inherit" />} severity="success">{saltResult}<i className={clsx(classes.copyIcon, "far fa-copy")} onClick={() => navigator.clipboard.writeText(saltResult)}></i></Alert>}
             <form  className={classes.form}>
             <TextField size='small' value={randomNo} onChange={(event) => setRandomNo(event.target.value)} label='Random no' fullWidth/>
-            <Button size='small' className={classes.btn} variant="contained" onClick={generateSalt}>Generate</Button>
+            <Button size='small' className={classes.btn} variant="contained" onClick={() => generateSalt(randomNo)}>Generate</Button>
             </form>
         </Box>
     )
