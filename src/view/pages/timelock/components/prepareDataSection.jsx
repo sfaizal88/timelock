@@ -26,6 +26,8 @@ const PrepareDataSection = () => {
     const [recipientAddress, setRecipientAddress] = useState('');
     const [prepareDataResult, setPrepareDataResult] = useState('');
 
+    const isFormValid = () => recipientAddress.trim().length && amount.trim().length;
+
     // HOOKS
     const {prepareData} = useTimelockHook({setPrepareDataResult});
 
@@ -40,7 +42,7 @@ const PrepareDataSection = () => {
                 <Box className={classes.formField}>
                     <TextField size='small' value={amount} onChange={(event) => setAmount(event.target.value)} label='Amount' fullWidth/>
                 </Box>
-                <Button size='small' className={classes.btn} variant="contained" onClick={() => prepareData(recipientAddress, amount)}>Prepare Data</Button>
+                <Button disabled={!isFormValid()} size='small' className={classes.btn} variant="contained" onClick={() => prepareData(recipientAddress, amount)}>Prepare Data</Button>
             </form>
         </Box>
     )

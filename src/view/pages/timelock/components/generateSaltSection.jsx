@@ -25,6 +25,8 @@ const GenerateSaltSection = () => {
     const [randomNo, setRandomNo] = useState('');
     const [saltResult, setSaltResult] = useState('');
 
+    const isFormValid = () => randomNo.trim().length;
+
     // HOOKS
     const {generateSalt} = useTimelockHook({setSaltResult});
 
@@ -34,7 +36,7 @@ const GenerateSaltSection = () => {
             {saltResult && <Alert className={classes.output} icon={<CheckIcon fontSize="inherit" />} severity="success">{saltResult}<i className={clsx(classes.copyIcon, "far fa-copy")} onClick={() => navigator.clipboard.writeText(saltResult)}></i></Alert>}
             <form  className={classes.form}>
             <TextField size='small' value={randomNo} onChange={(event) => setRandomNo(event.target.value)} label='Random no' fullWidth/>
-            <Button size='small' className={classes.btn} variant="contained" onClick={() => generateSalt(randomNo)}>Generate</Button>
+            <Button disabled={!isFormValid()} size='small' className={classes.btn} variant="contained" onClick={() => generateSalt(randomNo)}>Generate</Button>
             </form>
         </Box>
     )
